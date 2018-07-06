@@ -183,7 +183,7 @@
 					    location   	(2080, 1136)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	362
+					    max_width  	325
 					    justify    	0
 					    label      	"系统管理员")
 					icon       	"Actor"
@@ -211,7 +211,7 @@
 					    location   	(944, 1152)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	362
+					    max_width  	325
 					    justify    	0
 					    label      	"老师")
 					icon       	"Actor"
@@ -239,7 +239,7 @@
 					    location   	(1360, 1161)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	362
+					    max_width  	325
 					    justify    	0
 					    label      	"学生")
 					icon       	"Actor"
@@ -269,7 +269,7 @@
 					    location   	(608, 1168)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	362
+					    max_width  	325
 					    justify    	0
 					    label      	"访客")
 					icon       	"Actor"
@@ -297,7 +297,7 @@
 					    location   	(1712, 1152)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	362
+					    max_width  	325
 					    justify    	0
 					    label      	"专家")
 					icon       	"Actor"
@@ -325,7 +325,7 @@
 					    location   	(1440, 560)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	362
+					    max_width  	325
 					    justify    	0
 					    label      	"用户")
 					icon       	"Actor"
@@ -882,7 +882,7 @@
 						    location   	(368, 848)
 						    anchor_loc 	1
 						    nlines     	2
-						    max_width  	362
+						    max_width  	325
 						    justify    	0
 						    label      	"系统管理员")
 						icon       	"Actor"
@@ -1123,7 +1123,7 @@
 						    location   	(288, 928)
 						    anchor_loc 	1
 						    nlines     	2
-						    max_width  	362
+						    max_width  	325
 						    justify    	0
 						    label      	"系统管理员")
 						icon       	"Actor"
@@ -1434,7 +1434,7 @@
 						    location   	(432, 752)
 						    anchor_loc 	1
 						    nlines     	2
-						    max_width  	362
+						    max_width  	325
 						    justify    	0
 						    label      	"用户")
 						icon       	"Actor"
@@ -1564,7 +1564,7 @@
 						    location   	(464, 1200)
 						    anchor_loc 	1
 						    nlines     	2
-						    max_width  	362
+						    max_width  	325
 						    justify    	0
 						    label      	"系统管理员")
 						icon       	"Actor"
@@ -2328,7 +2328,7 @@
 				    location   	(368, 864)
 				    anchor_loc 	1
 				    nlines     	2
-				    max_width  	362
+				    max_width  	325
 				    justify    	0
 				    label      	"系统管理员")
 				icon       	"Actor"
@@ -2631,7 +2631,7 @@
 				    location   	(256, 1392)
 				    anchor_loc 	1
 				    nlines     	2
-				    max_width  	362
+				    max_width  	325
 				    justify    	0
 				    label      	"用户")
 				icon       	"Actor"
@@ -2926,13 +2926,111 @@
 					logical_models 	(list unit_reference_list
 					    (object UseCase "登录"
 						quid       	"5B3F14ED0289"
-						stereotype 	"use-case realization"))
+						stereotype 	"use-case realization"
+						logical_models 	(list unit_reference_list
+						    (object Mechanism @125
+							logical_models 	(list unit_reference_list
+							    (object Object "$UNNAMED$17"
+								quid       	"5B3F2571039D"
+								class      	"Use Case View::精品课程开发与管理::Actors::用户"
+								quidu      	"5B3ED7A802A4"
+								persistence 	"Transient"
+								creationObj 	FALSE
+								multi      	FALSE)
+							    (object Object "$UNNAMED$18"
+								quid       	"5B3F257A00F5"
+								class      	"Logical View::设计模型::wds::jsp::login.jsp"
+								quidu      	"5B3F235B0097"
+								persistence 	"Transient"
+								creationObj 	FALSE
+								multi      	FALSE))))
+						logical_presentations 	(list unit_reference_list
+						    (object InteractionDiagram "登录seqd"
+							mechanism_ref 	@125
+							quid       	"5B3F232501C7"
+							title      	"登录seqd"
+							zoom       	100
+							max_height 	28350
+							max_width  	21600
+							origin_x   	0
+							origin_y   	0
+							items      	(list diagram_item_list
+							    (object InterObjView "$UNNAMED$17" @126
+								location   	(176, 224)
+								font       	(object Font
+								    size       	9
+								    face       	"Arial"
+								    bold       	FALSE
+								    italics    	FALSE
+								    underline  	TRUE
+								    strike     	FALSE
+								    color      	0
+								    default_color 	TRUE)
+								label      	(object ItemLabel
+								    Parent_View 	@126
+								    location   	(176, 245)
+								    anchor_loc 	1
+								    nlines     	2
+								    max_width  	324
+								    justify    	0
+								    label      	"")
+								icon       	"Actor"
+								icon_style 	"Icon"
+								line_color 	3342489
+								fill_color 	13434879
+								quidu      	"5B3F2571039D"
+								width      	300
+								height     	163
+								icon_height 	150
+								icon_width 	108
+								icon_y_offset 	0
+								annotation 	1)
+							    (object InterObjView "$UNNAMED$18" @127
+								location   	(544, 224)
+								font       	(object Font
+								    size       	9
+								    face       	"Arial"
+								    bold       	FALSE
+								    italics    	FALSE
+								    underline  	TRUE
+								    strike     	FALSE
+								    color      	0
+								    default_color 	TRUE)
+								label      	(object ItemLabel
+								    Parent_View 	@127
+								    location   	(544, 246)
+								    anchor_loc 	1
+								    nlines     	2
+								    max_width  	651
+								    justify    	0
+								    label      	"")
+								icon       	"boundary"
+								icon_style 	"Icon"
+								line_color 	3342489
+								fill_color 	13434879
+								quidu      	"5B3F257A00F5"
+								width      	300
+								height     	163
+								icon_height 	141
+								icon_width 	217
+								icon_y_offset 	0
+								annotation 	1))))))
 					logical_presentations 	(list unit_reference_list))
 				    (object Class_Category "信息统计"
-					is_unit    	TRUE
-					is_loaded  	FALSE
-					file_name  	"C:\\Users\\pc\\Desktop\\Test\\xinxi.cat"
-					quid       	"5B3F146000C2")
+					quid       	"5B3F146000C2"
+					exportControl 	"Public"
+					logical_models 	(list unit_reference_list
+					    (object Class_Category "ylx"
+						quid       	"5B3F26500045"
+						exportControl 	"Public"
+						logical_models 	(list unit_reference_list)
+						logical_presentations 	(list unit_reference_list))
+					    (object Class_Category "xxj"
+						quid       	"5B3F265700C5"
+						exportControl 	"Public"
+						logical_models 	(list unit_reference_list)
+						logical_presentations 	(list unit_reference_list)))
+					logical_presentations 	(list unit_reference_list))
 				    (object Class_Category "用户与角色管理"
 					quid       	"5B3F146802D9"
 					exportControl 	"Public"
@@ -2955,14 +3053,17 @@
 		
 		exportControl 	"Public"
 		logical_models 	(list unit_reference_list
-		    (object Class_Category "TEST"
+		    (object Class_Category "wds"
 			quid       	"5B3F15FF020F"
 			exportControl 	"Public"
 			logical_models 	(list unit_reference_list
 			    (object Class_Category "jsp"
 				quid       	"5B3F15F602B7"
 				exportControl 	"Public"
-				logical_models 	(list unit_reference_list)
+				logical_models 	(list unit_reference_list
+				    (object Class "login.jsp"
+					quid       	"5B3F235B0097"
+					stereotype 	"boundary"))
 				logical_presentations 	(list unit_reference_list))
 			    (object Class_Category "SystemManage"
 				quid       	"5B3C737B022A"
@@ -3054,7 +3155,7 @@
 					origin_x   	0
 					origin_y   	0
 					items      	(list diagram_item_list
-					    (object ClassView "Class" "Logical View::设计模型::TEST::SystemManage::User" @125
+					    (object ClassView "Class" "Logical View::设计模型::wds::SystemManage::User" @128
 						ShowCompartmentStereotypes 	TRUE
 						IncludeAttribute 	TRUE
 						IncludeOperation 	TRUE
@@ -3069,19 +3170,18 @@
 						    color      	0
 						    default_color 	TRUE)
 						label      	(object ItemLabel
-						    Parent_View 	@125
-						    location   	(683, 505)
+						    Parent_View 	@128
+						    location   	(767, 595)
 						    fill_color 	13434879
 						    nlines     	1
-						    max_width  	330
+						    max_width  	162
 						    justify    	0
 						    label      	"User")
 						icon_style 	"Icon"
 						line_color 	3342489
 						fill_color 	13434879
 						quidu      	"5B3C6A3A0226"
-						width      	348
-						height     	290
+						height     	110
 						annotation 	8
 						autoResize 	TRUE)))
 				    (object ClassDiagram "UserManage"
@@ -3093,7 +3193,7 @@
 					origin_x   	0
 					origin_y   	0
 					items      	(list diagram_item_list
-					    (object ClassView "Class" "Logical View::设计模型::TEST::SystemManage::UserManage" @126
+					    (object ClassView "Class" "Logical View::设计模型::wds::SystemManage::UserManage" @129
 						ShowCompartmentStereotypes 	TRUE
 						IncludeAttribute 	TRUE
 						IncludeOperation 	TRUE
@@ -3108,19 +3208,19 @@
 						    color      	0
 						    default_color 	TRUE)
 						label      	(object ItemLabel
-						    Parent_View 	@126
-						    location   	(789, 585)
+						    Parent_View 	@129
+						    location   	(790, 675)
 						    fill_color 	13434879
 						    nlines     	1
-						    max_width  	246
+						    max_width  	244
 						    justify    	0
 						    label      	"UserManage")
 						icon_style 	"Icon"
 						line_color 	3342489
 						fill_color 	13434879
 						quidu      	"5B3ED06D017D"
-						width      	264
-						height     	290
+						width      	262
+						height     	110
 						annotation 	8
 						autoResize 	TRUE)))
 				    (object ClassDiagram "Statistics"
@@ -3132,7 +3232,7 @@
 					origin_x   	0
 					origin_y   	0
 					items      	(list diagram_item_list
-					    (object ClassView "Class" "Logical View::设计模型::TEST::SystemManage::Statistics" @127
+					    (object ClassView "Class" "Logical View::设计模型::wds::SystemManage::Statistics" @130
 						ShowCompartmentStereotypes 	TRUE
 						IncludeAttribute 	TRUE
 						IncludeOperation 	TRUE
@@ -3147,18 +3247,18 @@
 						    color      	0
 						    default_color 	TRUE)
 						label      	(object ItemLabel
-						    Parent_View 	@127
-						    location   	(659, 675)
+						    Parent_View 	@130
+						    location   	(658, 675)
 						    fill_color 	13434879
 						    nlines     	1
-						    max_width  	186
+						    max_width  	188
 						    justify    	0
 						    label      	"Statistics")
 						icon_style 	"Icon"
 						line_color 	3342489
 						fill_color 	13434879
 						quidu      	"5B3C71FC03BE"
-						width      	204
+						width      	206
 						height     	110
 						annotation 	8
 						autoResize 	TRUE))))))
@@ -3185,7 +3285,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object NoteView @128
+		    (object NoteView @131
 			location   	(768, 384)
 			font       	(object Font
 			    size       	9
@@ -3197,7 +3297,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@128
+			    Parent_View 	@131
 			    location   	(121, 96)
 			    fill_color 	13434879
 			    nlines     	14
@@ -3217,7 +3317,7 @@
 			fill_color 	13434879
 			width      	1319
 			height     	588)
-		    (object CategoryView "Use Case View::精品课程开发与管理" @129
+		    (object CategoryView "Use Case View::精品课程开发与管理" @132
 			location   	(976, 960)
 			font       	(object Font
 			    size       	9
@@ -3229,7 +3329,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@129
+			    Parent_View 	@132
 			    location   	(793, 876)
 			    fill_color 	13434879
 			    nlines     	2
@@ -3282,7 +3382,7 @@
 			origin_x   	0
 			origin_y   	0
 			items      	(list diagram_item_list
-			    (object NoteView @130
+			    (object NoteView @133
 				location   	(624, 160)
 				font       	(object Font
 				    size       	9
@@ -3294,7 +3394,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@130
+				    Parent_View 	@133
 				    location   	(21, 26)
 				    fill_color 	13434879
 				    nlines     	5
@@ -3321,7 +3421,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object SubSysView "Component View::Implementation Model" @131
+		    (object SubSysView "Component View::Implementation Model" @134
 			location   	(736, 800)
 			font       	(object Font
 			    size       	9
@@ -3333,7 +3433,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@131
+			    Parent_View 	@134
 			    location   	(552, 713)
 			    fill_color 	13434879
 			    nlines     	2
@@ -3396,7 +3496,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object ProcessorView "<processor name>" @132
+		    (object ProcessorView "<processor name>" @135
 			location   	(512, 1056)
 			font       	(object Font
 			    size       	9
@@ -3408,7 +3508,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@132
+			    Parent_View 	@135
 			    location   	(276, 900)
 			    nlines     	2
 			    max_width  	400
@@ -3419,7 +3519,7 @@
 			width      	475
 			height     	381
 			annotation 	3)
-		    (object DeviceView "<device name>" @133
+		    (object DeviceView "<device name>" @136
 			location   	(1040, 1056)
 			font       	(object Font
 			    size       	9
@@ -3431,7 +3531,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@133
+			    Parent_View 	@136
 			    location   	(867, 950)
 			    nlines     	2
 			    max_width  	275
@@ -3442,16 +3542,16 @@
 			width      	350
 			height     	282
 			annotation 	0)
-		    (object ConnectionView "" @134
+		    (object ConnectionView "" @137
 			stereotype 	TRUE
 			quidu      	"34DBBD4B008C"
-			client     	@132
-			supplier   	@133
+			client     	@135
+			supplier   	@136
 			vertices   	(list Points
 			    (718, 1056)
 			    (865, 1056))
 			line_style 	0)
-		    (object NoteView @135
+		    (object NoteView @138
 			location   	(816, 304)
 			font       	(object Font
 			    size       	9
@@ -3463,7 +3563,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@135
+			    Parent_View 	@138
 			    location   	(38, 29)
 			    fill_color 	13434879
 			    nlines     	11
