@@ -445,7 +445,7 @@
 					max_height 	28350
 					max_width  	21600
 					origin_x   	0
-					origin_y   	6
+					origin_y   	5
 					items      	(list diagram_item_list
 					    (object UseCaseView "Use Case View::精品课程开发与管理::系统管理::信息统计::统计单门课程访问量" @10
 						location   	(1648, 192)
@@ -707,7 +707,7 @@
 						client     	@10
 						supplier   	@18
 						vertices   	(list Points
-						    (1472, 341)
+						    (1461, 353)
 						    (1135, 629))
 						line_style 	0)
 					    (object AttachView "" @21
@@ -804,7 +804,7 @@
 						supplier   	@18
 						vertices   	(list Points
 						    (1952, 1097)
-						    (1180, 735))
+						    (1392, 835))
 						line_style 	0)
 					    (object AttachView "" @27
 						stereotype 	TRUE
@@ -827,7 +827,7 @@
 						    default_color 	TRUE)
 						stereotype 	(object SegLabel @29
 						    Parent_View 	@28
-						    location   	(1596, 1152)
+						    location   	(1597, 1153)
 						    font       	(object Font
 							size       	9
 							face       	"Arial"
@@ -852,7 +852,7 @@
 						supplier   	@18
 						vertices   	(list Points
 						    (1629, 1350)
-						    (1152, 783))
+						    (1208, 849))
 						line_style 	0)
 					    (object AttachView "" @30
 						stereotype 	TRUE
@@ -860,8 +860,8 @@
 						client     	@17
 						supplier   	@28
 						vertices   	(list Points
-						    (1232, 1201)
-						    (1390, 1066))
+						    (1234, 1201)
+						    (1393, 1069))
 						line_style 	0)
 					    (object ClassView "Class" "Use Case View::精品课程开发与管理::Actors::系统管理员" @31
 						ShowCompartmentStereotypes 	TRUE
@@ -2939,7 +2939,7 @@
 								multi      	FALSE)
 							    (object Object "$UNNAMED$18"
 								quid       	"5B3F257A00F5"
-								class      	"Logical View::设计模型::系统管理::登录与注册::login.jsp"
+								class      	"Logical View::设计模型::wds::jsp::login.jsp"
 								quidu      	"5B3F235B0097"
 								persistence 	"Transient"
 								creationObj 	FALSE
@@ -3029,22 +3029,18 @@
 						quid       	"5B3F265700C5"
 						exportControl 	"Public"
 						logical_models 	(list unit_reference_list
-						    (object UseCase "统计课程数量"
-							quid       	"5B3F2B340380"
+						    (object Class_Category "统计课程数量"
+							quid       	"5B3F280D03E3"
+							exportControl 	"Public"
 							logical_models 	(list unit_reference_list
-							    (object Mechanism @128
-								logical_models 	(list unit_reference_list)))
-							logical_presentations 	(list unit_reference_list
-							    (object InteractionDiagram "NewDiagram"
-								mechanism_ref 	@128
-								quid       	"5B3F2B460129"
-								title      	"NewDiagram"
-								zoom       	100
-								max_height 	28350
-								max_width  	21600
-								origin_x   	0
-								origin_y   	0
-								items      	(list diagram_item_list)))))
+							    (object UseCase "NewUseCase"
+								quid       	"5B3F29610252"))
+							logical_presentations 	(list unit_reference_list))
+						    (object Class_Category "统计用户基本情况"
+							quid       	"5B3F281A033B"
+							exportControl 	"Public"
+							logical_models 	(list unit_reference_list)
+							logical_presentations 	(list unit_reference_list)))
 						logical_presentations 	(list unit_reference_list)))
 					logical_presentations 	(list unit_reference_list))
 				    (object Class_Category "用户与角色管理"
@@ -3069,22 +3065,40 @@
 		
 		exportControl 	"Public"
 		logical_models 	(list unit_reference_list
-		    (object Class_Category "系统管理"
-			quid       	"5B3F31B90322"
+		    (object Class_Category "wds"
+			quid       	"5B3F15FF020F"
 			exportControl 	"Public"
 			logical_models 	(list unit_reference_list
-			    (object Class_Category "登录与注册"
-				quid       	"5B3F31D600AA"
+			    (object Class_Category "jsp"
+				quid       	"5B3F15F602B7"
 				exportControl 	"Public"
 				logical_models 	(list unit_reference_list
 				    (object Class "login.jsp"
 					quid       	"5B3F235B0097"
 					stereotype 	"boundary"))
 				logical_presentations 	(list unit_reference_list))
-			    (object Class_Category "信息统计"
-				quid       	"5B3F31E6039A"
+			    (object Class_Category "SystemManage"
+				quid       	"5B3C737B022A"
 				exportControl 	"Public"
 				logical_models 	(list unit_reference_list
+				    (object Class "User"
+					quid       	"5B3C6A3A0226"
+					class_attributes 	(list class_attribute_list
+					    (object ClassAttribute "ID"
+						quid       	"5B3C6AC8035A"
+						documentation 	"管理员账号"
+						type       	"String")
+					    (object ClassAttribute "password"
+						quid       	"5B3C6AEA03DA"
+						documentation 	"管理员登录密码"
+						type       	"String")
+					    (object ClassAttribute "name"
+						quid       	"5B3C6AFE0004"
+						documentation 	"管理员姓名"
+						type       	"String")
+					    (object ClassAttribute "role"
+						quid       	"5B3ECF180256"
+						type       	"String")))
 				    (object Class "Statistics"
 					quid       	"5B3C71FC03BE"
 					operations 	(list Operations
@@ -3119,87 +3133,7 @@
 						concurrency 	"Sequential"
 						opExportControl 	"Public"
 						uid        	0
-						quidu      	"5B3C6A3A0226"))))
-				logical_presentations 	(list unit_reference_list
-				    (object ClassDiagram "Statistics"
-					quid       	"5B3ED32803B7"
-					title      	"Statistics"
-					zoom       	100
-					max_height 	28350
-					max_width  	21600
-					origin_x   	0
-					origin_y   	0
-					items      	(list diagram_item_list
-					    (object ClassView "Class" "Logical View::设计模型::系统管理::信息统计::Statistics" @129
-						ShowCompartmentStereotypes 	TRUE
-						IncludeAttribute 	TRUE
-						IncludeOperation 	TRUE
-						location   	(752, 720)
-						font       	(object Font
-						    size       	9
-						    face       	"Arial"
-						    bold       	FALSE
-						    italics    	FALSE
-						    underline  	FALSE
-						    strike     	FALSE
-						    color      	0
-						    default_color 	TRUE)
-						label      	(object ItemLabel
-						    Parent_View 	@129
-						    location   	(549, 573)
-						    fill_color 	13434879
-						    nlines     	1
-						    max_width  	406
-						    justify    	0
-						    label      	"Statistics")
-						icon_style 	"Icon"
-						line_color 	3342489
-						fill_color 	13434879
-						quidu      	"5B3C71FC03BE"
-						compartment 	(object Compartment
-						    Parent_View 	@129
-						    location   	(549, 631)
-						    font       	(object Font
-							size       	9
-							face       	"Arial"
-							bold       	FALSE
-							italics    	FALSE
-							underline  	FALSE
-							strike     	FALSE
-							color      	0
-							default_color 	TRUE)
-						    icon_style 	"Icon"
-						    fill_color 	16777215
-						    anchor     	2
-						    nlines     	5
-						    max_width  	403
-						    justify    	1)
-						width      	424
-						height     	316
-						annotation 	8
-						autoResize 	TRUE)))))
-			    (object Class_Category "用户与角色管理"
-				quid       	"5B3F321E035A"
-				exportControl 	"Public"
-				logical_models 	(list unit_reference_list
-				    (object Class "User"
-					quid       	"5B3C6A3A0226"
-					class_attributes 	(list class_attribute_list
-					    (object ClassAttribute "ID"
-						quid       	"5B3C6AC8035A"
-						documentation 	"管理员账号"
-						type       	"String")
-					    (object ClassAttribute "password"
-						quid       	"5B3C6AEA03DA"
-						documentation 	"管理员登录密码"
-						type       	"String")
-					    (object ClassAttribute "name"
-						quid       	"5B3C6AFE0004"
-						documentation 	"管理员姓名"
-						type       	"String")
-					    (object ClassAttribute "role"
-						quid       	"5B3ECF180256"
-						type       	"String")))
+						quidu      	"5B3C6A3A0226")))
 				    (object Class "UserManage"
 					quid       	"5B3ED06D017D"
 					operations 	(list Operations
@@ -3224,63 +3158,6 @@
 						opExportControl 	"Public"
 						uid        	0))))
 				logical_presentations 	(list unit_reference_list
-				    (object ClassDiagram "UserManage"
-					quid       	"5B3ED2FC03DF"
-					title      	"UserManage"
-					zoom       	100
-					max_height 	28350
-					max_width  	21600
-					origin_x   	0
-					origin_y   	0
-					items      	(list diagram_item_list
-					    (object ClassView "Class" "Logical View::设计模型::系统管理::用户与角色管理::UserManage" @130
-						ShowCompartmentStereotypes 	TRUE
-						IncludeAttribute 	TRUE
-						IncludeOperation 	TRUE
-						location   	(912, 720)
-						font       	(object Font
-						    size       	9
-						    face       	"Arial"
-						    bold       	FALSE
-						    italics    	FALSE
-						    underline  	FALSE
-						    strike     	FALSE
-						    color      	0
-						    default_color 	TRUE)
-						label      	(object ItemLabel
-						    Parent_View 	@130
-						    location   	(780, 573)
-						    fill_color 	13434879
-						    nlines     	1
-						    max_width  	264
-						    justify    	0
-						    label      	"UserManage")
-						icon_style 	"Icon"
-						line_color 	3342489
-						fill_color 	13434879
-						quidu      	"5B3ED06D017D"
-						compartment 	(object Compartment
-						    Parent_View 	@130
-						    location   	(780, 631)
-						    font       	(object Font
-							size       	9
-							face       	"Arial"
-							bold       	FALSE
-							italics    	FALSE
-							underline  	FALSE
-							strike     	FALSE
-							color      	0
-							default_color 	TRUE)
-						    icon_style 	"Icon"
-						    fill_color 	16777215
-						    anchor     	2
-						    nlines     	5
-						    max_width  	259
-						    justify    	1)
-						width      	282
-						height     	316
-						annotation 	8
-						autoResize 	TRUE)))
 				    (object ClassDiagram "User"
 					quid       	"5B3ED2DF00D0"
 					title      	"User"
@@ -3290,7 +3167,7 @@
 					origin_x   	0
 					origin_y   	0
 					items      	(list diagram_item_list
-					    (object ClassView "Class" "Logical View::设计模型::系统管理::用户与角色管理::User" @131
+					    (object ClassView "Class" "Logical View::设计模型::wds::SystemManage::User" @128
 						ShowCompartmentStereotypes 	TRUE
 						IncludeAttribute 	TRUE
 						IncludeOperation 	TRUE
@@ -3305,7 +3182,7 @@
 						    color      	0
 						    default_color 	TRUE)
 						label      	(object ItemLabel
-						    Parent_View 	@131
+						    Parent_View 	@128
 						    location   	(767, 595)
 						    fill_color 	13434879
 						    nlines     	1
@@ -3316,24 +3193,84 @@
 						line_color 	3342489
 						fill_color 	13434879
 						quidu      	"5B3C6A3A0226"
-						compartment 	(object Compartment
-						    Parent_View 	@131
-						    location   	(767, 726)
-						    font       	(object Font
-							size       	9
-							face       	"Arial"
-							bold       	FALSE
-							italics    	FALSE
-							underline  	FALSE
-							strike     	FALSE
-							color      	0
-							default_color 	TRUE)
-						    icon_style 	"Icon"
-						    fill_color 	16777215
-						    anchor     	2
-						    nlines     	5
-						    max_width  	0
-						    justify    	1)
+						height     	110
+						annotation 	8
+						autoResize 	TRUE)))
+				    (object ClassDiagram "UserManage"
+					quid       	"5B3ED2FC03DF"
+					title      	"UserManage"
+					zoom       	100
+					max_height 	28350
+					max_width  	21600
+					origin_x   	0
+					origin_y   	0
+					items      	(list diagram_item_list
+					    (object ClassView "Class" "Logical View::设计模型::wds::SystemManage::UserManage" @129
+						ShowCompartmentStereotypes 	TRUE
+						IncludeAttribute 	TRUE
+						IncludeOperation 	TRUE
+						location   	(912, 720)
+						font       	(object Font
+						    size       	9
+						    face       	"Arial"
+						    bold       	FALSE
+						    italics    	FALSE
+						    underline  	FALSE
+						    strike     	FALSE
+						    color      	0
+						    default_color 	TRUE)
+						label      	(object ItemLabel
+						    Parent_View 	@129
+						    location   	(790, 675)
+						    fill_color 	13434879
+						    nlines     	1
+						    max_width  	244
+						    justify    	0
+						    label      	"UserManage")
+						icon_style 	"Icon"
+						line_color 	3342489
+						fill_color 	13434879
+						quidu      	"5B3ED06D017D"
+						width      	262
+						height     	110
+						annotation 	8
+						autoResize 	TRUE)))
+				    (object ClassDiagram "Statistics"
+					quid       	"5B3ED32803B7"
+					title      	"Statistics"
+					zoom       	100
+					max_height 	28350
+					max_width  	21600
+					origin_x   	0
+					origin_y   	0
+					items      	(list diagram_item_list
+					    (object ClassView "Class" "Logical View::设计模型::wds::SystemManage::Statistics" @130
+						ShowCompartmentStereotypes 	TRUE
+						IncludeAttribute 	TRUE
+						IncludeOperation 	TRUE
+						location   	(752, 720)
+						font       	(object Font
+						    size       	9
+						    face       	"Arial"
+						    bold       	FALSE
+						    italics    	FALSE
+						    underline  	FALSE
+						    strike     	FALSE
+						    color      	0
+						    default_color 	TRUE)
+						label      	(object ItemLabel
+						    Parent_View 	@130
+						    location   	(658, 675)
+						    fill_color 	13434879
+						    nlines     	1
+						    max_width  	188
+						    justify    	0
+						    label      	"Statistics")
+						icon_style 	"Icon"
+						line_color 	3342489
+						fill_color 	13434879
+						quidu      	"5B3C71FC03BE"
+						width      	206
 						height     	110
 						annotation 	8
 						autoResize 	TRUE))))))
@@ -3360,7 +3297,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object CategoryView "Use Case View::精品课程开发与管理" @132
+		    (object CategoryView "Use Case View::精品课程开发与管理" @131
 			location   	(976, 960)
 			font       	(object Font
 			    size       	9
@@ -3372,7 +3309,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@132
+			    Parent_View 	@131
 			    location   	(792, 876)
 			    fill_color 	13434879
 			    nlines     	2
@@ -3425,7 +3362,7 @@
 			origin_x   	0
 			origin_y   	0
 			items      	(list diagram_item_list
-			    (object NoteView @133
+			    (object NoteView @132
 				location   	(624, 160)
 				font       	(object Font
 				    size       	9
@@ -3437,7 +3374,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@133
+				    Parent_View 	@132
 				    location   	(21, 26)
 				    fill_color 	13434879
 				    nlines     	5
@@ -3464,7 +3401,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object SubSysView "Component View::Implementation Model" @134
+		    (object SubSysView "Component View::Implementation Model" @133
 			location   	(736, 800)
 			font       	(object Font
 			    size       	9
@@ -3476,7 +3413,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@134
+			    Parent_View 	@133
 			    location   	(552, 713)
 			    fill_color 	13434879
 			    nlines     	2
@@ -3539,7 +3476,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object ProcessorView "<processor name>" @135
+		    (object ProcessorView "<processor name>" @134
 			location   	(512, 1056)
 			font       	(object Font
 			    size       	9
@@ -3551,7 +3488,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@135
+			    Parent_View 	@134
 			    location   	(276, 900)
 			    nlines     	2
 			    max_width  	400
@@ -3562,7 +3499,7 @@
 			width      	475
 			height     	381
 			annotation 	3)
-		    (object DeviceView "<device name>" @136
+		    (object DeviceView "<device name>" @135
 			location   	(1040, 1056)
 			font       	(object Font
 			    size       	9
@@ -3574,7 +3511,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@136
+			    Parent_View 	@135
 			    location   	(867, 950)
 			    nlines     	2
 			    max_width  	275
@@ -3585,16 +3522,16 @@
 			width      	350
 			height     	282
 			annotation 	0)
-		    (object ConnectionView "" @137
+		    (object ConnectionView "" @136
 			stereotype 	TRUE
 			quidu      	"34DBBD4B008C"
-			client     	@135
-			supplier   	@136
+			client     	@134
+			supplier   	@135
 			vertices   	(list Points
 			    (718, 1056)
 			    (865, 1056))
 			line_style 	0)
-		    (object NoteView @138
+		    (object NoteView @137
 			location   	(816, 304)
 			font       	(object Font
 			    size       	9
@@ -3606,7 +3543,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@138
+			    Parent_View 	@137
 			    location   	(38, 29)
 			    fill_color 	13434879
 			    nlines     	11
