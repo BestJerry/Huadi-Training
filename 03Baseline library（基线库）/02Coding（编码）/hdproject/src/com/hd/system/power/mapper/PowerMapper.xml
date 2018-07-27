@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hd.system.power.mapper.PowerMapper">
+
+
+
+<update id="updatePower">
+   update power set recharge=#{arg1} where account_type=#{arg0}
+</update>
+
+
+
+<select id="selectPower" resultType="boolean">
+   select recharge from power order by account_type
+</select>
+
+</mapper>

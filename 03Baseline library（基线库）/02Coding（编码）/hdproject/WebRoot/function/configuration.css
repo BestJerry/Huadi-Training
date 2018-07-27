@@ -1,0 +1,43 @@
+[genuitec-file-id="wc1-4"],[genuitec-lp-path="/hdproject/WebRoot/function/configuration.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+.person{
+	display: flex !important;
+	align-items: center !important;
+}
+.type{
+	margin-top: 10px; 
+}
+.block{
+	display: block;
+	margin-top: 75px;
+}
+.configuration{
+	background-color: #0c1214;
+	border-left: 3px solid #009688;
+}
+.quit{
+	font-size: 16px;
+	color: #fff;
+	float: right;
+	margin: 14px 40px;
+}
+a:link{
+	color: #fff;
+}
+a:active{
+	color: #fff;
+}
+a:visited{
+	color: #fff;
+}
+a:hover{
+	color: #fff !important;
+	font-size: 17px;
+	font-weight: bold !important;
+}
+table,thead,tbody,tr,th,td{
+	border:2px solid #ccc !important;
+	border-radius: 3px;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="addAccount.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <title>账号信息管理</title>
+  </head>
+  <body class="sidebar-mini fixed" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-2" data-genuitec-path="/hdproject/WebRoot/function/addAccount.html">
+    <div class="wrapper" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-2" data-genuitec-path="/hdproject/WebRoot/function/addAccount.html">
+      <!-- Navbar-->
+      <header class="main-header hidden-print">
+        <div class="logo" style="font-family: '幼圆'; font-size: 22px; ">七彩云</div>
+        <nav class="navbar navbar-static-top">
+          <a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+          <a href="../homePage/homePage.html" class="quit" id="quitSystem">退出</a>
+        </nav>
+      </header>
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print">
+        <section class="sidebar">
+          <div class="user-panel person">
+            <div class="pull-left image"><img class="img-circle" src="../image/girl.jpg" alt="User Image"></div>
+            <div class="pull-left info">
+              <p style="font-family: '幼圆'" id="account"></p>
+            </div>
+          </div>
+          <!-- Sidebar Menu-->
+          <ul class="sidebar-menu">
+            <li class="account"><a href="addAccount.html"><i class="fa fa-pie-chart"></i><span>账户管理</span></a></li>
+            <li ><a href="configuration.html"><i class="fa fa-edit"></i><span>配置管理</span></a> 
+            </li>
+            <li><a href="loginManager.html"><i class="fa fa-file-text"></i><span>登录管理</span></a>
+             
+            </li>
+          </ul>
+        </section>
+      </aside>
+       <div class="content-wrapper">
+        <div class="page-title">
+          <div>
+            <h1>账户管理</h1>
+          </div>
+          <div class="btn btn-primary btn-flat add" id="addAccount"><i class="fa fa-lg fa-plus" ></i>增加账号</div>
+        </div>
+        <!--添加账号-->
+          <dialog id="addInformation" class="dialogAdd">
+            <h3>添加账号信息</h3>
+            <form>
+              <div class="form-group">
+                  <label class="control-label col-md-3 type">账号类型</label>
+                  <div class="col-md-8">
+                    <select class="form-control " autofocus id="account_type">
+                      <option value="2" >前台</option>
+                      <option value="3">客户经理</option>
+                      <option value="4">经理</option>
+                    </select>
+                  </div>
+              </div>
+        
+              <div class="form-group">
+                    <label class="control-label col-md-3 init">是否启用</label>
+                    <div class="toggle init col-md-2">
+                      <label>
+                        <input type="checkbox" id="isStart"><span class="button-indecator" /></span>
+                      </label>
+                   </div> 
+              </div>
+              <br>
+              <div class="block" >
+                <button id="sure" class="btn btn-primary icon-btn" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>&nbsp;&nbsp;&nbsp;<label class="btn btn-default icon-btn" id="cancel"><i class="fa fa-fw fa-lg fa-times-circle"></i>取消</label> 
+              </div>
+            </form>
+          </dialog>
+        <dialog id="isSure" class="dialogAdd">
+          <label class="isInit">是否要对此账号进行初始化密码？</label>
+           <div  >
+                <button id="sureInit" class="btn btn-primary icon-btn" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>&nbsp;&nbsp;&nbsp;<label class="btn btn-default icon-btn" id="cancelInit"><i class="fa fa-fw fa-lg fa-times-circle"></i>取消</label> 
+              </div>
+        </dialog>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <table class="table table-hover table-bordered" id="sampleTable">
+                  <thead>
+                    <tr>
+                      <th>账号</th>
+                      <th>账号类型</th>
+                      <th>是否启用</th>
+                      <th>初始化密码</th>
+                    </tr>
+                  </thead>
+                  <tbody id="data">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <dialog id="loginInformation" class="modifyPassword">
+      <h3>登录信息</h3>
+         <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-md-5">登录账号</label>
+            <div class="col-md-6">
+              <input class="form-control " type="text" placeholder="登录账号" disabled="disabled" id="loginAccount">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">登录密码</label>
+            <div class="col-md-6">
+              <input class="form-control " type="text" placeholder="登录密码" disabled="disabled" id="loginPassword">
+            </div>
+          </div>
+          <div >
+                <button id="sure2" class="btn btn-primary icon-btn" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>
+          </div>
+        </form>
+    </dialog>
+    <!-- Javascripts-->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/pace.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script type="text/javascript" src="addAccount.js"></script>
+  </body>
+</html>

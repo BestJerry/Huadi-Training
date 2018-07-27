@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<!-- 引入外部配置文件 -->
+	<properties resource="jdbc.properties"></properties>
+	
+	<!-- 开启log4j日志功能 -->
+	<settings>
+        <setting name="logImpl" value="LOG4J"/>  
+    </settings>
+	
+	<!-- 为JAVA Bean起类别名 -->
+   <typeAliases >
+        <!-- 自动扫描 包下的所有Bean -->
+        <package name="com.hd.beans"/>
+   </typeAliases>
+	
+	<!-- 配置Mybatis运行环境 -->
+	<environments default="development">
+		<environment id="development">
+			<!-- type="JDBC" 代表使用JDBC的提交和回滚来管理事务 -->
+			<transactionManager type="JDBC"/>
+			
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+			</dataSource>
+			
+		</environment>
+	</environments>
+	
+	 <mappers>
+        <!-- 自动扫描包内的Mapper接口与配置文件 -->
+        <package name="com.hd.login.mapper"/>
+    </mappers>
+	
+	
+</configuration>
+

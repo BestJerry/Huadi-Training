@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hd.accountBusinessContactsmapper.AccountMapper">
+
+<!-- 自定义返回结果集 -->
+<resultMap id="accountMap" type="com.hd.beans.Account">
+  <id property="acc_id" column="acc_id" javaType="java.lang.Integer"></id>
+  <result property="account_type" column="account_type" javaType="java.lang.Integer"></result>
+  <result property="bus_id" column="bus_id" javaType="java.lang.Integer"></result>
+  <result property="acc_name" column="acc_name" javaType="java.lang.String"></result>
+  <result property="acc_psd" column="acc_psd" javaType="java.lang.String"></result>
+  <result property="isStart" column="isStart" javaType="java.lang.Boolean"></result>
+   <result property="acc_time" column="acc_time" javaType="java.util.Date"></result>
+</resultMap>
+
+<!-- 在各种标签中的id属性必须和接口中的方法名相同 ， id属性值必须是唯一的，不能够重复使用。parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型-->    
+<!-- useGeneratedKeys：（ 仅 对 insert 有 用 ） 这 会 告 诉 MyBatis 使 用 JDBC 的getGeneratedKeys 
+         方法来取出由数据（比如：像 MySQL 和 SQLServer 这样的数据库管理系统的自动递增字段）内部生成的主键。默认值： false。 -->    
+<!--keyProperty： （仅对 insert有用）标记一个属性， MyBatis 会通过 getGeneratedKeys或者通过 insert 语句的 selectKey 子元素设置它的值。默认：不设置。 -->
+<!--#{}中的内容，为占位符，当参数为某个JavaBean时，表示放置该Bean对象的属性值  -->
+
+<insert id="insertAccount" useGeneratedKeys="true" keyProperty="acc_id">
+   insert into account(account_type,bus_id,acc_name,acc_psd,isStart,acc_time) values(#{account_type},#{bus_id},#{acc_name},#{acc_psd},#{isStart},#{acc_time})
+</insert>
+
+<update id="updateAccount">
+   update account set account_type=#{arg0.account_type},bus_id=#{arg0.bus_id},acc_name=#{arg0.acc_name},acc_psd=#{arg0.acc_psd},isStart=#{arg0.isStart},acc_time=#{arg0.acc_time} where acc_id=#{arg1}
+</update>
+
+<delete id="deleteAccount" parameterType="int">
+   delete form account where acc_id=#{acc_id}
+</delete>
+
+<select id="selectAccountById" parameterType="int" resultMap="accountMap">
+   select * from account where acc_id=#{acc_id}
+</select>
+
+<select id="selectAccountByName" resultType="Account">
+   select acc_name from account where acc_name=#{acc_name}
+</select>
+
+<select id="selectAllAccounts" resultMap="accountMap">
+   select * from account
+</select>
+
+<select id="searchAccounts" resultType="Account">
+	select * from account where bus_id=#{arg3} and acc_name like "%"#{arg2}"%" limit #{arg0},#{arg1}
+</select>
+
+</mapper>

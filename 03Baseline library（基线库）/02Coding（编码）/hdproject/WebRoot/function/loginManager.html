@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="loginManager.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <title>登录管理</title>
+  <script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"59677",secure:"59680"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
+  <body class="sidebar-mini fixed" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-7" data-genuitec-path="/hdproject/WebRoot/function/loginManager.html">
+    <div class="wrapper" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-7" data-genuitec-path="/hdproject/WebRoot/function/loginManager.html">
+      <!-- Navbar-->
+      <header class="main-header hidden-print">
+        <div class="logo" style="font-family: '幼圆'; font-size: 22px; ">七彩云</div>
+        <nav class="navbar navbar-static-top">
+          <a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+          <a href="../homePage/homePage.html" class="quit" id="quitSystem">退出</a>
+        </nav>
+      </header>
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print">
+        <section class="sidebar">
+          <div class="user-panel person">
+            <div class="pull-left image"><img class="img-circle" src="../image/girl.jpg" alt="User Image"></div>
+            <div class="pull-left info">
+              <p style="font-family: '幼圆'" id="account"></p>
+            </div>
+          </div>
+          <!-- Sidebar Menu-->
+          <ul class="sidebar-menu">
+            <li ><a href="addAccount.html"><i class="fa fa-pie-chart"></i><span>账户管理</span></a></li>
+            <li><a href="configuration.html"><i class="fa fa-edit"></i><span>配置管理</span></a> 
+            </li>
+            <li class="loginManager"><a href="loginManager.html"><i class="fa fa-file-text"></i><span>登录管理</span></a>
+             
+            </li>
+          </ul>
+        </section>
+      </aside>
+       <div class="content-wrapper">
+        <div class="page-title">
+          <div>
+            <h1>登录管理</h1>
+          </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label class="control-label">账号</label>
+                    <input class="form-control" type="text" id="currentAccount" disabled="disabled" >
+                  </div>
+                 <!-- <div class="form-group">
+                    <label class="control-label">密码</label>
+                    <input class="form-control" type="password" value="fdsgfewrt3432" disabled="disabled" placeholder="单位为%" id="password">
+                  </div>  -->
+                  <div class="form-group">
+                    <label class="control-label">用户登录日志</label>
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="card-body">
+                            <table class="table table-hover table-bordered" >
+                              <thead>
+                                <tr>
+                                  <th>账号</th>
+                                  <th>账号类型</th>
+                                  <th>日期</th>
+                                  <th>URL地址</th>
+                                  <th>功能名称</th>
+                                  <th>操作说明</th>
+                                  <th>备注</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>25452343</td>
+                                  <td>经理</td>
+                                  <td>
+                                    2018-7-14 16:34:33
+                                  </td>
+                                  <td>192:168:2:23</td>
+                                  <td>登录管理</td>
+                                  <td>上班时间</td>
+                                  <td>无</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <button id="modify" class="btn btn-primary icon-btn"><i class="fa fa-fw fa-lg fa-edit"></i>修改密码</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <dialog id="modifyPassword" class="modifyPassword">
+      <div>
+         <h3 class="margin_bottom">修改密码</h3>
+         <label id="warning" class="warning"></label>
+      </div>
+         <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-md-5">原密码</label>
+            <div class="col-md-6">
+              <input class="form-control " type="password" placeholder="原密码" id="oldpsd">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">新密码</label>
+            <div class="col-md-6">
+              <input class="form-control  " type="password" placeholder="新密码" id="newpsd">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-5">确认密码</label>
+            <div class="col-md-6">
+              <input class="form-control " type="password" placeholder="确认密码" id="confirm">
+            </div>
+          </div>
+          <div >
+                <button id="sure" class="btn btn-primary icon-btn" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>&nbsp;&nbsp;&nbsp;<label class="btn btn-default icon-btn" id="cancel"><i class="fa fa-fw fa-lg fa-times-circle"></i>取消</label> 
+              </div>
+        </form>
+    </dialog>
+    <!-- Javascripts-->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/pace.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="loginManager.js"></script>
+  </body>
+</html>

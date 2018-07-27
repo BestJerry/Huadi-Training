@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="configuration.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <title>配置管理</title>
+  </head>
+  <body class="sidebar-mini fixed" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-5" data-genuitec-path="/hdproject/WebRoot/function/configuration.html">
+    <div class="wrapper" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-5" data-genuitec-path="/hdproject/WebRoot/function/configuration.html">
+      <!-- Navbar-->
+      <header class="main-header hidden-print">
+        <div class="logo" style="font-family: '幼圆'; font-size: 22px; ">七彩云</div>
+        <nav class="navbar navbar-static-top">
+          <a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+          <a href="../homePage/homePage.html"class="quit">退出</a>
+        </nav>
+      </header>
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print">
+        <section class="sidebar">
+          <div class="user-panel person">
+            <div class="pull-left image"><img class="img-circle" src="../image/girl.jpg" alt="User Image"></div>
+            <div class="pull-left info">
+              <p style="font-family: '幼圆'" id="account"></p>
+            </div>
+          </div>
+          <!-- Sidebar Menu-->
+          <ul class="sidebar-menu">
+            <li ><a href="addAccount.html"><i class="fa fa-pie-chart"></i><span>账户管理</span></a></li>
+            <li class="configuration"><a href="configuration.html"><i class="fa fa-edit"></i><span>配置管理</span></a> 
+            </li>
+            <li><a href="loginManager.html"><i class="fa fa-file-text"></i><span>登录管理</span></a>
+             
+            </li>
+          </ul>
+        </section>
+      </aside>
+       <div class="content-wrapper">
+        <div class="page-title">
+          <div>
+            <h1>配置管理</h1>
+          </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label class="control-label">消费积分比例</label>
+                    <input class="form-control" type="text"  disabled="disabled" placeholder="单位为%" id="consumption">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" >会员折扣比例</label>
+                    <input class="form-control" type="text"  disabled="disabled" placeholder="单位为%" id="members">
+                  </div>  
+                  <div class="form-group">
+                    <label class="control-label">对会员卡充值权限</label>
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="card-body">
+                            <table class="table table-hover table-bordered" >
+                              <thead>
+                                <tr>
+                                  <th>账号类型</th>
+                                  <th>是否具有对会员卡充值的权限</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>前台</td>
+                                  <td>
+                                    <div class="toggle col-md-8">
+                                        <label>
+                                          <input type="checkbox" disabled="disabled" id="type2"><span class="button-indecator" ></span>
+                                        </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>客户经理</td>
+                                  <td>
+                                    <div class="toggle col-md-8">
+                                        <label>
+                                          <input type="checkbox" disabled="disabled" id="type3"><span class="button-indecator" /></span>
+                                        </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>经理</td>
+                                  <td>
+                                    <div class="toggle col-md-8">
+                                        <label>
+                                          <input type="checkbox" disabled="disabled" id="type4"><span class="button-indecator" /></span>
+                                        </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <button id="save" class="btn btn-primary icon-btn" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>保存</button>&nbsp;&nbsp;&nbsp;<button id="modify" class="btn btn-default icon-btn"><i class="fa fa-fw fa-lg fa-edit"></i>修改</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- Javascripts-->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/pace.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="configuration.js"></script>
+  </body>
+</html>

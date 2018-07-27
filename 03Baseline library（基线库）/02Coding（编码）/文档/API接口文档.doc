@@ -1,0 +1,819 @@
+
+        <html xmlns:v="urn:schemas-microsoft-com:vml"
+        xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:w="urn:schemas-microsoft-com:office:word"
+        xmlns="http://www.w3.org/TR/REC-html40">
+        <head><meta http-equiv=Content-Type content="text/html;  
+        charset=utf-8">
+        <style type="text/css">
+            table  
+            {  
+                border-collapse: collapse;
+                border: none;  
+                width: 100%;  
+            }  
+            td  
+            {  
+                border: solid #CCC 1px;  
+            }  
+            .codestyle{
+                word-break: break-all;
+                background:silver;mso-highlight:silver;
+            }
+        </style>
+        <meta name=ProgId content=Word.Document>
+        <meta name=Generator content="Microsoft Word 11">
+        <meta name=Originator content="Microsoft Word 11">
+        <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+        <body><h1>1、通用</h1><div style="margin-left:20px;"><h2>1.1、验证码图片</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>验证码图片接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./verificationCode</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>
+<p>GET</p>
+<p><strong>返回示例</strong></p>
+</li>
+</ul>
+<table width='100%' class='codestyle'><pre><code>  直接返回图片流</code></pre></table>
+<p><strong>验证码图片大小</strong></p>
+<ul>
+<li>
+<p>80X40 的规格大小</p>
+<p><strong>备注</strong></p>
+</li>
+<li>后端在生成随机验证码后需记录在session中，属性字段名为"verificationCode"</li>
+</ul></div><h2>1.2、查询当前登陆用户的角色</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>查询当前已登陆用户的角色，用于前端判断应显示的权限功能</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./getAccountType</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>GET</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {
+      &quot;account_type&quot;:&quot;1&quot;
+    },
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }</code></pre></table>
+<p><strong>返回参数说明</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">account_type</td>
+<td style="text-align: left;">int</td>
+<td>角色类型</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注</strong></p></div></div><h1>2、登陆注册</h1><div style="margin-left:20px;"><h2>2.1、登陆接口</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>商家登录接口</li>
+</ul>
+<p><strong>请求URL：</strong> </p>
+<ul>
+<li><code>./login</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">acc_name</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>账号</td>
+</tr>
+<tr>
+<td style="text-align: left;">acc_psd</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>密码</td>
+</tr>
+<tr>
+<td style="text-align: left;">verificationCode</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>验证码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;:{} ,
+    &quot;status&quot;:&quot;0&quot;,
+    &quot;message&quot;:&quot;&quot;
+  }
+  -------------------------------------
+  {
+    &quot;data&quot;:{} ,
+    &quot;status&quot;:&quot;1&quot;,
+    &quot;message&quot;:&quot;账号不存在&quot;
+  }
+  -------------------------------------
+  {
+    &quot;data&quot;:{} ,
+    &quot;status&quot;:&quot;1&quot;,
+    &quot;message&quot;:&quot;密码错误&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p>
+<ul>
+<li>后端在登陆检验完成功登陆的用户后，将用户的所有信息存入到session中，属性命名为"account"</li>
+</ul></div><h2>2.2、加盟注册接口</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>用户注册接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./register</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bus_type</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>企业类别</td>
+</tr>
+<tr>
+<td style="text-align: left;">bus_name</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>企业名称</td>
+</tr>
+<tr>
+<td style="text-align: left;">bus_add</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>地址</td>
+</tr>
+<tr>
+<td style="text-align: left;">bus_phone</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>电话</td>
+</tr>
+<tr>
+<td style="text-align: left;">bus_postcode</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">string</td>
+<td>邮编</td>
+</tr>
+<tr>
+<td style="text-align: left;">bus_star</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>星级</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_intergral</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">decimal</td>
+<td>消费积分比例</td>
+</tr>
+<tr>
+<td style="text-align: left;">discount</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">decimal</td>
+<td>会员折扣比</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_title</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>称谓</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_name</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>姓名</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_position</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>职务</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_tel</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">string</td>
+<td>电话</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_mobile</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">string</td>
+<td>手机</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_fax</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">string</td>
+<td>传真</td>
+</tr>
+<tr>
+<td style="text-align: left;">con_email</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td style="text-align: left;">verificationCode</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>验证码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回参数说明</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">acc_name</td>
+<td style="text-align: left;">string</td>
+<td>分配的账号</td>
+</tr>
+<tr>
+<td style="text-align: left;">acc_psd</td>
+<td style="text-align: left;">string</td>
+<td>分配的初始密码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {
+      &quot;acc_name&quot;: &quot;ami201807&quot;,
+      &quot;acc_psd&quot;: &quot;ami201807&quot;
+    },
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;:&quot;&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p></div><h2>2.3、账号退出</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>对已登陆账号做退出操作</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./logout</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>
+<p>POST</p>
+<p><strong>备注</strong></p>
+</li>
+</ul></div></div><h1>3、商家账号操作</h1><div style="margin-left:20px;"><h2>3.1、商家修改密码</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>用于商家修改自己的登陆密码接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./updatePassword</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">oldpsd</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>原密码</td>
+</tr>
+<tr>
+<td style="text-align: left;">newpsd</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>新密码</td>
+</tr>
+<tr>
+<td style="text-align: left;">confirm</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>确认新密码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p></div><h2>3.2、登录日志查询</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>查询所属该商家的所有账号的登录登出日志</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./geoInOutLog</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>GET</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {
+        &quot;log_id&quot;:&quot;00043&quot;,
+        &quot;acc_id&quot;:&quot;100037&quot;,
+        &quot;log_type&quot;:&quot;1&quot;,
+        &quot;log_time&quot;:&quot;2018-07-15&quot;
+    },
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }</code></pre></table>
+<p><strong>返回参数说明</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">log_id</td>
+<td style="text-align: left;">int</td>
+<td>该条日志信息的ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">log_id</td>
+<td style="text-align: left;">int</td>
+<td>账号ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">log_id</td>
+<td style="text-align: left;">int</td>
+<td>登录类型 1：登入 2：登出</td>
+</tr>
+<tr>
+<td style="text-align: left;">log_id</td>
+<td style="text-align: left;">int</td>
+<td>登录时间</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注</strong></p></div></div><h1>4、子账号操作</h1><div style="margin-left:20px;"><h2>4.1、修改子账号启用状态</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>设置所属于该商家的各个子账号的启用状态接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./updateSubaccountStatus</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">acc_id</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>子账号的ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">isStart</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>启用状态（0.表关闭，1.表开启）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }
+  -----------------------------------
+  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;1&quot;,
+    &quot;message&quot;: &quot;非法参数&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p>
+<ul>
+<li>后端在执行修改操作前需首先检查acc_id参数的子账号是否是所属于当前登陆的商家</li>
+</ul></div><h2>4.2、子账号密码初始化</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>将改该商家所属子账号的密码初始化接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./initSubaccount</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">acc_id</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>子账号的ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }
+  -----------------
+  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;1&quot;,
+    &quot;message&quot;: &quot;非法参数&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p>
+<ul>
+<li>后端在执行操作前需检查该子账号是否是属于该商家</li>
+</ul></div><h2>4.3、添加子账号</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>商家账号添加管理员接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./addSubaccount</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">account_type</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>子账号类型 2：前台 3：客户经理 4：经理</td>
+</tr>
+<tr>
+<td style="text-align: left;">isStart</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>启用状态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }
+  ---------------------
+  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;1&quot;,
+    &quot;message&quot;: &quot;非法参数&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p>
+<ul>
+<li>后端检查参数时需注意账号不能为1.（即不能创建管理员类型）</li>
+</ul></div><h2>4.4、查询子账号</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>查询所属于该商家的除管理员外的所有子账号信息</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./getAccount</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>GET</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">page</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">int</td>
+<td>显示的页数（默认第一页）</td>
+</tr>
+<tr>
+<td style="text-align: left;">countEachPage</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>每页显示的信息条数</td>
+</tr>
+<tr>
+<td style="text-align: left;">account_name</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">string</td>
+<td>进行模糊搜索的账号名参数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {
+      &quot;accounts&quot;:[
+        {
+            &quot;acc_id&quot;:&quot;00032&quot;,
+            &quot;acc_name&quot;:&quot;ami88371&quot;,
+            &quot;account_type&quot;:&quot;2&quot;,
+            &quot;acc_time&quot;:&quot;2018-07-14&quot;,
+            &quot;isStart&quot;:&quot;0&quot;
+        },
+        {
+            &quot;acc_id&quot;:&quot;00034&quot;,
+            &quot;acc_name&quot;:&quot;ami88374&quot;,
+            &quot;account_type&quot;:&quot;3&quot;,
+            &quot;acc_time&quot;:&quot;2018-07-02&quot;,
+            &quot;isStart&quot;:&quot;1&quot;
+        },
+        ...
+      ],
+      &quot;pageCount&quot;:&quot;5&quot;,
+      &quot;start&quot;:&quot;1&quot;,
+      &quot;end&quot;:&quot;10&quot;
+    },
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }</code></pre></table>
+<p><strong>返回参数说明</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">accounts</td>
+<td style="text-align: left;">对象数组</td>
+<td>所有子账号对象信息构成的数组</td>
+</tr>
+<tr>
+<td style="text-align: left;">acc_id</td>
+<td style="text-align: left;">int</td>
+<td>子账号的ID</td>
+</tr>
+<tr>
+<td style="text-align: left;">acc_name</td>
+<td style="text-align: left;">string</td>
+<td>子账号登陆名</td>
+</tr>
+<tr>
+<td style="text-align: left;">account_type</td>
+<td style="text-align: left;">int</td>
+<td>子账号的类型</td>
+</tr>
+<tr>
+<td style="text-align: left;">acc_time</td>
+<td style="text-align: left;">date</td>
+<td>最近登陆时间</td>
+</tr>
+<tr>
+<td style="text-align: left;">isStart</td>
+<td style="text-align: left;">int</td>
+<td>是否启用</td>
+</tr>
+<tr>
+<td style="text-align: left;">pageCount</td>
+<td style="text-align: left;">int</td>
+<td>所有信息共有多少页</td>
+</tr>
+<tr>
+<td style="text-align: left;">start</td>
+<td style="text-align: left;">int</td>
+<td>当前显示页的第一条信息是所有信息的第几条</td>
+</tr>
+<tr>
+<td style="text-align: left;">end</td>
+<td style="text-align: left;">int</td>
+<td>当前显示页的最后一条信息是所有信息的第几条</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注</strong></p></div></div><h1>5、系统设置</h1><div style="margin-left:20px;"><h2>5.1、修改子账号对会员卡充值权限</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>设置当前商家的子账号中各种角色对会员卡充值权限的接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./updatePower</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">type2</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>前台充值权限（0.代表关闭，1.代表开启。  下同。）</td>
+</tr>
+<tr>
+<td style="text-align: left;">type3</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>客户经理充值权限</td>
+</tr>
+<tr>
+<td style="text-align: left;">type4</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">int</td>
+<td>经理充值权限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }
+  ----------------------
+  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;1&quot;,
+    &quot;message&quot;: &quot;非法参数！&quot;
+  }</code></pre></table>
+<p><strong>备注</strong></p></div><h2>5.2、修改消费参数</h2><div style="margin-left:20px;"><p><strong>简要描述：</strong></p>
+<ul>
+<li>设置消费参数的接口</li>
+</ul>
+<p><strong>请求URL：</strong></p>
+<ul>
+<li><code>./updateParameter</code></li>
+</ul>
+<p><strong>请求方式：</strong></p>
+<ul>
+<li>POST</li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">con_intergral</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">decimal</td>
+<td>会员消费积分比</td>
+</tr>
+<tr>
+<td style="text-align: left;">discount</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">decimal</td>
+<td>会员折扣</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回示例</strong></p>
+<table width='100%' class='codestyle'><pre><code>  {
+    &quot;data&quot;: {},
+    &quot;status&quot;: &quot;0&quot;,
+    &quot;message&quot;: &quot;&quot;
+  }</code></pre></table>
+<p><strong>返回参数说明</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><strong>备注</strong></p></div></div></body></html>

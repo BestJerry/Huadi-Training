@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hd.accountBusinessContactsmapper.BusinessMapper">
+
+<!-- 自定义返回结果集 -->
+<resultMap id="businessMap" type="com.hd.beans.Business">
+  <id property="bus_id" column="bus_id" javaType="java.lang.Integer"></id>
+  <result property="con_id" column="con_id" javaType="java.lang.Integer"></result>
+  <result property="bus_type" column="bus_type" javaType="java.lang.String"></result>
+  <result property="bus_name" column="bus_name" javaType="java.lang.String"></result>
+  <result property="bus_add" column="bus_add" javaType="java.lang.String"></result>
+  <result property="bus_phone" column="bus_phone" javaType="java.lang.String"></result>
+   <result property="bus_postcode" column="bus_postcode" javaType="java.lang.String"></result>
+  <result property="bus_star" column="bus_star" javaType="java.lang.Integer"></result>
+  <result property="con_intergral" column="con_intergral" javaType="java.lang.Double"></result>
+  <result property="discount" column="discount" javaType="java.lang.Double"></result>
+   
+</resultMap>
+
+<!-- 在各种标签中的id属性必须和接口中的方法名相同 ， id属性值必须是唯一的，不能够重复使用。parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型-->    
+<!-- useGeneratedKeys：（ 仅 对 insert 有 用 ） 这 会 告 诉 MyBatis 使 用 JDBC 的getGeneratedKeys 
+         方法来取出由数据（比如：像 MySQL 和 SQLServer 这样的数据库管理系统的自动递增字段）内部生成的主键。默认值： false。 -->    
+<!--keyProperty： （仅对 insert有用）标记一个属性， MyBatis 会通过 getGeneratedKeys或者通过 insert 语句的 selectKey 子元素设置它的值。默认：不设置。 -->
+<!--#{}中的内容，为占位符，当参数为某个JavaBean时，表示放置该Bean对象的属性值  -->
+
+<insert id="insertBusiness" useGeneratedKeys="true" keyProperty="bus_id">
+   insert into business(con_id,bus_type,bus_name,bus_add,bus_phone,bus_postcode,bus_star,con_intergral,discount) values(#{con_id},#{bus_type},#{bus_name},#{bus_add},#{bus_phone},#{bus_postcode},#{bus_star},#{con_intergral},#{discount})
+</insert>
+
+<update id="updateBusiness">
+   update business set con_id=#{con_id},bus_type=#{bus_type},bus_name=#{bus_name},bus_add=#{bus_add},bus_phone=#{bus_phone},bus_postcode=#{bus_postcode},bus_star=#{bus_star},con_intergral=#{con_intergral},discount=#{discount} where bus_id=#{bus_id}
+</update>
+
+<delete id="deleteBusiness" parameterType="int">
+   delete form business where bus_id=#{bus_id}
+</delete>
+
+<select id="selectBusinessById" parameterType="int" resultMap="businessMap">
+   select * from business where bus_id=#{bus_id}
+</select>
+
+<select id="selectAllBusiness" resultMap="businessMap">
+   select * from business
+</select>
+
+</mapper>

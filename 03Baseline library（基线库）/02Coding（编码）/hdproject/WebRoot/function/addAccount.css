@@ -1,0 +1,65 @@
+[genuitec-file-id="wc1-1"],[genuitec-lp-path="/hdproject/WebRoot/function/addAccount.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+.person{
+	display: flex !important;
+	align-items: center !important;
+}
+.add{
+	border-radius: 5px !important;
+}
+.dialogAdd{
+	width: 400px;
+	height: 250px;
+	border: 2px solid #ccc;
+	text-align: center;
+}
+.init{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.type{
+	margin-top: 10px; 
+}
+.block{
+	display: block;
+	margin-top: 75px;
+}
+.account{
+	background-color: #0c1214;
+	border-left: 3px solid #009688;
+}
+.quit{
+	font-size: 16px;
+	color: #fff;
+	float: right;
+	margin: 14px 40px;
+}
+a:link{
+	color: #fff;
+}
+a:active{
+	color: #fff;
+}
+a:visited{
+	color: #fff;
+}
+a:hover{
+	color: #fff !important;
+	font-size: 17px;
+	font-weight: bold !important;
+}
+.initPassword{
+	border-radius: 3px;
+}
+.isInit{
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+.modifyPassword{
+	width: 400px;
+	height: 250px;
+	border: 2px solid #ccc;
+	text-align: center;
+}

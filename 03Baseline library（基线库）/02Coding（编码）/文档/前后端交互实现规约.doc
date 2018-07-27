@@ -1,0 +1,142 @@
+
+        <html xmlns:v="urn:schemas-microsoft-com:vml"
+        xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:w="urn:schemas-microsoft-com:office:word"
+        xmlns="http://www.w3.org/TR/REC-html40">
+        <head><meta http-equiv=Content-Type content="text/html;  
+        charset=utf-8">
+        <style type="text/css">
+            table  
+            {  
+                border-collapse: collapse;
+                border: none;  
+                width: 100%;  
+            }  
+            td  
+            {  
+                border: solid #CCC 1px;  
+            }  
+            .codestyle{
+                word-break: break-all;
+                background:silver;mso-highlight:silver;
+            }
+        </style>
+        <meta name=ProgId content=Word.Document>
+        <meta name=Generator content="Microsoft Word 11">
+        <meta name=Originator content="Microsoft Word 11">
+        <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+        <body><h1>项目文档</h1><div style="margin-left:20px;"><h2>1、前后端交互实现规范</h2><div style="margin-left:20px;"><p><strong>前后端交互格式：</strong> </p>
+<ul>
+<li>统一使用 JSON 格式进行数据交互</li>
+</ul>
+<p><strong>返回给前端的响应格式：</strong> </p>
+<ul>
+<li>统一返回的JSON格式如下
+<table width='100%' class='codestyle'><pre><code>{
+&quot;data&quot;: {},
+&quot;status&quot;:&quot;&quot;,
+&quot;message&quot;:&quot;&quot;
+}</code></pre></table></li>
+</ul>
+<p><strong>参数：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">data</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>响应的数据</td>
+</tr>
+<tr>
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">string</td>
+<td>响应的状态码（详细见下面的全局状态码）</td>
+</tr>
+<tr>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">string</td>
+<td>可选的，用于描述该响应或错误原因等作用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>全局状态码：</strong></p>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">状态码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0</td>
+<td>成功</td>
+</tr>
+<tr>
+<td style="text-align: left;">1</td>
+<td>失败</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td>无权限</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td>系统错误（后台发生严重错误时 如程序抛出异常，数据库操作出错等）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>后端统一使用如下类作为响应对象，即将该对象转换成响应JSON（我会在项目工程里创建这些供全局使用的类的包）：</strong></p>
+<pre><code class="language-java">public class Response {
+
+    private Object data;
+
+    private String status;
+
+    private String message;
+
+    public Response(){super();}
+
+    public Response(Object data, String status, String message) {
+        super();
+        this.data = data;
+        this.status = status;
+        this.message = message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
+</code></pre></table>
+<p><strong>Java对象与JSON转换统一使用org.json：</strong></p>
+<p>使用教程： <code>https://www.cnblogs.com/geek1116/p/7413619.html</code></p>
+<p><strong>备注</strong></p></div></div></body></html>
